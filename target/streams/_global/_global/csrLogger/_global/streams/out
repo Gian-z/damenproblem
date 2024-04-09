@@ -1,0 +1,16 @@
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.13/scala-library-2.13.13.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.13/scala-compiler-2.13.13.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/jline/jline/3.24.1/jline-3.24.1.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.13/scala-reflect-2.13.13.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/jline/jline/3.24.1/jline-3.24.1.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.13/scala-reflect-2.13.13.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.13/scala-library-2.13.13.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.13/scala-compiler-2.13.13.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/jline/jline/3.24.1/jline-3.24.1-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.13/scala-reflect-2.13.13-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.13/scala-library-2.13.13-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.13/scala-compiler-2.13.13-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/jline/jline/3.24.1/jline-3.24.1-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.13/scala-reflect-2.13.13-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.13/scala-compiler-2.13.13-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.13/scala-library-2.13.13-javadoc.jar

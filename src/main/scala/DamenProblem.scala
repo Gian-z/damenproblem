@@ -1,21 +1,34 @@
 package m323.damenproblem
 
-case class DamenProblem() {
-  def solve(row: Int, column: Int): List[List[Int]] = {
-    if (row <= 0) List(List())
-    else calculateQueens(row - 1, column, solve(row - 1, column))
-  }
+import cats.effect.IO
+import cats.effect.unsafe.implicits.global
+import cats.implicits.catsSyntaxApplicativeId
 
-  private def calculateQueens(newRow: Int, column: Int, oldSolution: List[List[Int]]): List[List[Int]] = {
-    var newSolution: List[List[Int]] = List()
-    for (solution <- oldSolution) {
-      for (newColumn <- 0 until column) {
-        if (noSimilaritys(newRow, newColumn, solution)) {
-          newSolution = newSolution :+ (solution :+ newColumn)
+case class DamenProblem() {
+  def solve(row: IO[Int], column: IO[Int]): IO[List[List[Int]]] = {
+    row.flatMap { r =>
+      if (r <= 0) {
+        IO.pure(List(List()))
+      } else {
+        solve(row.map(_ - 1), column).flatMap { prevSolutions =>
+          calculateQueens(r - 1, column, prevSolutions)
         }
       }
     }
-    newSolution
+  }
+
+  private def calculateQueens(newRow: Int, column: IO[Int], oldSolution: List[List[Int]]): IO[List[List[Int]]] = {
+    IO.delay {
+      oldSolution.flatMap { solution =>
+        (0 until column.unsafeRunSync()).flatMap { newColumn =>
+          if (noSimilaritys(newRow, newColumn, solution)) {
+            List(solution :+ newColumn)
+          } else {
+            List.empty
+          }
+        }
+      }
+    }
   }
 
   private def noSimilaritys(newRow: Int, newColumn: Int, solution: List[Int]): Boolean = {
@@ -27,7 +40,7 @@ case class DamenProblem() {
         return false
       }
     }
-    
+
     true
   }
 }

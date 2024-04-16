@@ -1,27 +1,35 @@
 package m323.damenproblem
 
-import scala.annotation.tailrec
-import cats.effect.IO
+import cats.effect.{ExitCode, IO, IOApp}
+import cats.implicits.catsSyntaxApplicativeId
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    val boardLength = getInt("How long is your board")
-    
-    val solutions = DamenProblem().solve(boardLength, boardLength)
-    for (solution <- solutions) {
-      println(solution)
+object Main extends IOApp {
+
+  override def run(args: List[String]): IO[ExitCode] = {
+    getInt("How long is your board").flatMap { boardLength =>
+      val solutionsIO = DamenProblem().solve(IO.pure(boardLength), IO.pure(boardLength))
+      for {
+        solutions <- solutionsIO
+        _ <- IO.delay {
+          for (solution <- solutions) {
+            println(solution)
+          }
+        }
+        firstSolution <- IO.delay(solutions.head)
+        visualization <- IO.delay(Visualizer().visualize(firstSolution))
+        _ <- IO.delay(println(visualization))
+      } yield ExitCode.Success
     }
-    
-    println(Visualizer().visualize(solutions.head))
   }
 
-  @tailrec
-  def getInt(prompt: String): Int = {
-    val length = readIntFromConsole(prompt)
-    if (length <= 0) {
-      getInt(prompt)
-    } else {
-      length
+  def getInt(prompt: String): IO[Int] = {
+    val length: IO[Int] = IO.delay(readIntFromConsole(prompt))
+    length.flatMap { value =>
+      if (value <= 0) {
+        getInt(prompt)
+      } else {
+        IO.pure(value)
+      }
     }
   }
 

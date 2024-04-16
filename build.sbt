@@ -7,3 +7,5 @@ lazy val root = (project in file("."))
     name := "damenproblem",
     idePackagePrefix := Some("m323.damenproblem")
   )
+
+libraryDependencies += "org.typelevel" %% "cats-effect" % "3.5.4"

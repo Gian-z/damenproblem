@@ -12,6 +12,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.13:jar" level="project" />
-    <orderEntry type="library" name="scala-sdk-2.12.18" level="application" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-core_2.13:2.9.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect-kernel_2.13:3.5.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect-std_2.13:3.5.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-effect_2.13:3.5.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_2.13:2.9.0:jar" level="project" />
   </component>
 </module>

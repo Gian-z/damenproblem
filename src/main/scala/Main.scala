@@ -1,26 +1,32 @@
 package m323.damenproblem
 
+import scala.annotation.tailrec
+import cats.effect.IO
+
 object Main {
   def main(args: Array[String]): Unit = {
-    val int = readInt()
-    calculateQueens(int)
+    val boardLength = getInt("How long is your board")
+    
+    val solutions = DamenProblem().solve(boardLength, boardLength)
+    for (solution <- solutions) {
+      println(solution)
+    }
+    
+    println(Visualizer().visualize(solutions.head))
   }
 
-  def readInt(): Int = {
-    println("How long is your board?")
-    val length = scala.io.StdIn.readInt()
+  @tailrec
+  def getInt(prompt: String): Int = {
+    val length = readIntFromConsole(prompt)
     if (length <= 0) {
-      readInt()
+      getInt(prompt)
     } else {
-      println("Your board is " + length + " long")
-
       length
     }
   }
 
-  def calculateQueens(length: Int): Int = {
-
-
-
+  def readIntFromConsole(prompt: String): Int = {
+    println(prompt)
+    scala.io.StdIn.readInt()
   }
 }

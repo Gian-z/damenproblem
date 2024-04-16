@@ -18,10 +18,7 @@ case class Visualizer() {
     if (length <= 0)
       return previous
 
-    var snippet = "   |"
-    if (length == index + 1)
-      snippet = " ♕ |"
-    
+    val snippet = if (length == index + 1) " ♕ |" else "   |"
     getLine(length - 1, index, previous + snippet)
   }
 
